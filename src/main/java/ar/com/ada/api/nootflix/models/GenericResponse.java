@@ -1,4 +1,4 @@
-package ar.com.ada.api.stephix.models;
+package ar.com.ada.api.nootflix.models;
 
 public class GenericResponse {
 

@@ -2,6 +2,7 @@ package ar.com.ada.api.nootflix.controllers;
 
 import java.util.*;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -23,7 +24,7 @@ public class PeliculaController {
         GenericResponse response = new GenericResponse();
         response.isOK = true;
         response.message = "Pelicula creada con exito!";
-        response.id = peliInfo.get_id().toHexString();
+        response.id = peliInfo.get_id();
 
         return ResponseEntity.ok(response);
     }
@@ -32,5 +33,19 @@ public class PeliculaController {
     public ResponseEntity<List<Pelicula>> listarPeliculas() {
 
         return ResponseEntity.ok(peliculaService.listarPeliculas());
+    }
+
+    @GetMapping("/api/peliculas/{id}")
+    public ResponseEntity<Pelicula> GetPelicula(@PathVariable String id) {
+
+        ObjectId obId = new ObjectId(id);
+
+        Pelicula p = peliculaService.buscarPorId(obId);
+        if (p == null)
+            return ResponseEntity.notFound().build();
+
+        return ResponseEntity.ok(p);
+
+        // OBtener la pelicula.
     }
 }

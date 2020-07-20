@@ -2,6 +2,7 @@ package ar.com.ada.api.nootflix.services;
 
 import java.util.List;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,5 +21,9 @@ public class PeliculaService {
 
     public List<Pelicula> listarPeliculas() {
         return pRepository.findAll();
+    }
+
+    public Pelicula buscarPorId(ObjectId id) {
+        return pRepository.findBy_id(id);
     }
 }

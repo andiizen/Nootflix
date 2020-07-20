@@ -1,13 +1,13 @@
-package ar.com.ada.api.stephix.controllers;
+package ar.com.ada.api.nootflix.controllers;
 import java.util.*;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import ar.com.ada.api.stephix.models.GenericResponse;
+import ar.com.ada.api.nootflix.models.GenericResponse;
 
-import ar.com.ada.api.stephix.entities.*;
-import ar.com.ada.api.stephix.services.*;
+import ar.com.ada.api.nootflix.entities.*;
+import ar.com.ada.api.nootflix.services.*;
 
 @RestController
 public class SerieController {

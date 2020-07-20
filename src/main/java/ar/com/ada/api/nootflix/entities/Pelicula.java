@@ -1,4 +1,4 @@
-package ar.com.ada.api.stephix.entities;
+package ar.com.ada.api.nootflix.entities;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 

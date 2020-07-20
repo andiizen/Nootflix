@@ -1,12 +1,12 @@
-package ar.com.ada.api.stephix.services;
+package ar.com.ada.api.nootflix.services;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import ar.com.ada.api.stephix.entities.Serie;
-import ar.com.ada.api.stephix.repos.SerieRepository;
+import ar.com.ada.api.nootflix.entities.Serie;
+import ar.com.ada.api.nootflix.repos.SerieRepository;
 
 @Service
 public class SerieService {

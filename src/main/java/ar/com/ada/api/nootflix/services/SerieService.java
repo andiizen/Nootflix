@@ -26,4 +26,9 @@ public class SerieService {
     public Serie buscarPorId(ObjectId id) {
         return sRepository.findBy_id(id);
     }
+
+    public boolean eliminarSerie(ObjectId id) {
+        sRepository.deleteById(id);
+        return true;
+    }
 }

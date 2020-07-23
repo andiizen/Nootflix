@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ar.com.ada.api.nootflix.models.GenericResponse;
@@ -49,5 +50,26 @@ public class SerieController {
         return ResponseEntity.ok(s);
 
         // OBtener la serie.
+    }
+
+    @DeleteMapping("api/series/{id}")
+    public ResponseEntity<GenericResponse> borrarSerie(@PathVariable String id) {
+
+        ObjectId obId = new ObjectId(id);
+        GenericResponse resp = new GenericResponse();
+
+        boolean resultado = false;
+        resultado = serieService.eliminarSerie(obId);
+
+        if (resultado) {
+
+            resp.isOK = true;
+            resp.message = "Fue eliminada con exito";
+            return ResponseEntity.ok(resp);
+
+        }
+        resp.isOK = false;
+        resp.message = "No se pudo eliminar la Serie";
+        return ResponseEntity.ok(resp);
     }
 }

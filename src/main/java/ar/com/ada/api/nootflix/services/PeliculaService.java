@@ -26,4 +26,8 @@ public class PeliculaService {
     public Pelicula buscarPorId(ObjectId id) {
         return pRepository.findBy_id(id);
     }
+    public boolean eliminarPelicula(ObjectId id) {
+        pRepository.deleteById(id);
+        return true;
+    }
 }

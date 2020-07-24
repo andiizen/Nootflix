@@ -48,4 +48,25 @@ public class PeliculaController {
 
         // OBtener la pelicula.
     }
+
+    @DeleteMapping("api/peliculas/{id}")
+    public ResponseEntity<GenericResponse> borrarPelicula(@PathVariable String id) {
+
+        ObjectId obId = new ObjectId(id);
+        GenericResponse resp = new GenericResponse();
+
+        boolean resultado = false;
+        resultado = peliculaService.eliminarPelicula(obId);
+
+        if (resultado) {
+
+            resp.isOK = true;
+            resp.message = "Fue eliminada con exito";
+            return ResponseEntity.ok(resp);
+
+        }
+        resp.isOK = false;
+        resp.message = "No se pudo eliminar la pelicula especificada";
+        return ResponseEntity.ok(resp);
+    }
 }
